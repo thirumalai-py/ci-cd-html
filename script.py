@@ -1,6 +1,6 @@
 from github import *
 
-GIT_TOKEN = "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"
+GIT_TOKEN = "secret"
 
 # Auth the Repot
 
