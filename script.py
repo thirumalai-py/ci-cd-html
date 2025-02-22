@@ -69,6 +69,9 @@ if os.path.exists(commit_file):
         with open(commit_file, 'w') as file:
             file.write(recent_commit)
 else:
+    # Pull latest changes from the remote repository
+    origin = repo_src.remotes.origin
+    origin.pull()
     # Save the last commit
     with open(commit_file, 'w') as file:
         file.write(recent_commit)
