@@ -2,7 +2,6 @@ from github import Github
 from dotenv import load_dotenv
 import os
 from git import Repo
-import subprocess
  
 # Load environment variables from .env file
 load_dotenv()
@@ -54,11 +53,8 @@ else:
     # Pull latest changes from the remote repository
     origin = repo_src.remotes.origin
     origin.pull()
-    print("Git pull completed successfully!")
+    print("Initial Git pull completed successfully!")
     # Save the last commit
     with open(commit_file, 'w') as file:
         file.write(recent_commit)
-
-
-
 
