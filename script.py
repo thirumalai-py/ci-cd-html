@@ -29,9 +29,8 @@ repo_src = Repo(repo_path)
 print(repo.full_name)
 print(repo.description)
 
-branch_name = "dev"
 # Get commits
-commits = repo.get_commits(sha=branch_name)
+commits = repo.get_commits(sha=BRANCH)
 
 # Get Total count
 # print(commits.totalCount)
