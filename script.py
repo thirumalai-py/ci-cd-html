@@ -30,5 +30,18 @@ commits = repo.get_commits()
 # print("Latest commit: ", commits[0])
 
 latest_commit = commits[0]
-
 print(latest_commit.sha)
+
+
+path = 'last_commit.txt'
+
+if os.path.exists(path):
+    print("file")
+else:
+    # Save the last commit
+    with open('last_commit.txt', 'w') as file:
+        file.write(latest_commit.sha)
+
+
+
+
