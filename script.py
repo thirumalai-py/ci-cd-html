@@ -3,13 +3,12 @@ from dotenv import load_dotenv
 import os
 from git import Repo
 import subprocess
-
-
  
 # Load environment variables from .env file
 load_dotenv()
 
 GIT_TOKEN = os.getenv("GIT_TOKEN")
+BRANCH = os.getenv("BRANCH")
 
 # print(GIT_TOKEN)
 # Auth the Repo
@@ -30,11 +29,14 @@ repo_src = Repo(repo_path)
 print(repo.full_name)
 print(repo.description)
 
+branch_name = "dev"
 # Get commits
-commits = repo.get_commits()
+commits = repo.get_commits(sha=branch_name)
 
 # Get Total count
 # print(commits.totalCount)
+# for commit in commits:
+#     print(commit.sha)
 
 # print("Latest commit: ", commits[0])
 
@@ -45,11 +47,11 @@ print(recent_commit)
 
 path = 'last_commit.txt'
 
-# Pull latest changes from the remote repository
-origin = repo_src.remotes.origin
-origin.pull()
+# # Pull latest changes from the remote repository
+# origin = repo_src.remotes.origin
+# origin.pull()
 
-print("Git pull completed successfully!")
+# print("Git pull completed successfully!")
 
 if os.path.exists(path):
     with open('last_commit.txt', 'r') as file:
@@ -66,7 +68,6 @@ if os.path.exists(path):
         # Save the last commit
         with open('last_commit.txt', 'w') as file:
             file.write(recent_commit)
-        print(last_commit)
 else:
     # Save the last commit
     with open('last_commit.txt', 'w') as file:
