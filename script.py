@@ -45,7 +45,7 @@ recent_commit = latest_commit.sha
 print(recent_commit)
 
 
-path = 'last_commit.txt'
+commit_file = 'latest_commit.txt'
 
 # # Pull latest changes from the remote repository
 # origin = repo_src.remotes.origin
@@ -53,8 +53,8 @@ path = 'last_commit.txt'
 
 # print("Git pull completed successfully!")
 
-if os.path.exists(path):
-    with open('last_commit.txt', 'r') as file:
+if os.path.exists(commit_file):
+    with open(commit_file, 'r') as file:
         last_commit = file.readline().strip()
         print("Last commit: ", last_commit)
     if recent_commit==last_commit:
@@ -66,11 +66,11 @@ if os.path.exists(path):
 
         print("Git pull completed successfully!")
         # Save the last commit
-        with open('last_commit.txt', 'w') as file:
+        with open(commit_file, 'w') as file:
             file.write(recent_commit)
 else:
     # Save the last commit
-    with open('last_commit.txt', 'w') as file:
+    with open(commit_file, 'w') as file:
         file.write(recent_commit)
 
 
