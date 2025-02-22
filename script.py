@@ -45,6 +45,12 @@ print(recent_commit)
 
 path = 'last_commit.txt'
 
+# Pull latest changes from the remote repository
+origin = repo_src.remotes.origin
+origin.pull()
+
+print("Git pull completed successfully!")
+
 if os.path.exists(path):
     with open('last_commit.txt', 'r') as file:
         last_commit = file.readline().strip()
