@@ -1,6 +1,6 @@
 #!/bin/bash
 
-folder_path="/var/www/ci-cd-html"
+folder_path=$(pwd)
 commit_file="latest_commit.txt"
 # cat $commit_file
 
