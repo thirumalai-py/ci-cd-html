@@ -13,7 +13,7 @@ echo "Current Branch: $BRANCH"
 
 # Get the latest commit id from the remote branch
 latest_commit=$(git ls-remote origin $BRANCH | awk '{print $1}')
-echo "Lastes Commit id: $latest_commit"
+echo "Lastest Commit id: $latest_commit"
 
 # Get the saved commit id from the file
 saved_commit=$(cat "$commit_file" | head -n 1)
