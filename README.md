@@ -1,12 +1,14 @@
 # GitHub Auto-Pull Script
 
-This Python script simplifies keeping a local GitHub repository in sync with a remote branch. It automatically checks for and pulls new commits.
+This Python script simplifies keeping a local GitHub repository in sync with a remote branch. It automatically checks for and pulls new commits. There are 2 approches for this
 
-## What it Does
+- Python Script
+- Bash Script
 
+## Python Script
 The script authenticates with GitHub, checks for new commits on a specified branch, and pulls the latest changes if any are found.  It uses a file to track the last checked commit.
 
-## How to Use
+### How to Use
 
 1. **Install:** `pip install pygithub python-dotenv gitpython`
 2. **.env File:** Create a `.env` file with your GitHub token (`GIT_TOKEN`) and branch name (`BRANCH`).  *Do not commit this file.*
@@ -24,3 +26,8 @@ The script authenticates with GitHub, checks for new commits on a specified bran
 * **Automation:**  Keeps your local repo up-to-date.
 * **Security:** Protect your GitHub token.
 * **Simplicity:** Easy to set up and use.
+
+--- 
+
+## Bash Script
+This bash script automates the process of checking for new commits on a specified Git branch and updating the local repository accordingly. It compares the latest commit hash from the remote repository with a locally stored hash, and if a new commit is detected, it performs a `git pull` to update the repository and saves the new commit hash in a tracking file.
