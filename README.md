@@ -62,6 +62,10 @@ This bash script automates the process of checking for new commits on a specifie
 4. **Set Up cron tab:**
     ```* * * * * cd /var/www/ci-cd-html && ./automate.sh >> /var/www/ci-cd-html/cron.log```
 
+### Output
+
+![alt text](assets/ci_cd_output.png)
+
 ### Key Ideas
 
 * **Automation:**  Keeps your local repo up-to-date with CRONTAB trigger for every minute
