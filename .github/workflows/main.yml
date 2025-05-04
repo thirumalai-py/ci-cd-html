@@ -31,6 +31,11 @@ jobs:
             sudo chown -R ${{secrets.EC2_USERNAME}} /var/www/html/
             sudo chmod -R 755 /var/www/html/
 
+      - name: Debug – List files
+        run: |
+          ls -la
+          find . -type f
+
       - name: Copy Code to EC2
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -38,7 +43,8 @@ jobs:
           username: ${{secrets.EC2_USER_NAME}}
           key: ${{secrets.EC2_SSH_KEY}}
           port: 22
-          source: "./*"
+          source: |
+            index.html
           target: /var/www/html/
 
       - name: Restart Nginx
