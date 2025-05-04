@@ -14,6 +14,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Fix file permissions
+        run: |
+          sudo chmod -R u+rwX .
+
       - name: SSH into EC2 and Prepare directory
         uses: appleboy/ssh-action@v1.0.0
         with:
@@ -33,7 +38,7 @@ jobs:
           username: ${{secrets.EC2_USER_NAME}}
           key: ${{secrets.EC2_SSH_KEY}}
           port: 22
-          source: ./
+          source: "./*"
           target: /var/www/html/
 
       - name: Restart Nginx
