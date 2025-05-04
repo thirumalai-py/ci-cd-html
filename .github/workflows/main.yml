@@ -26,7 +26,7 @@ jobs:
           port: 22
           script: |
             sudo mkdir -p /var/www/html/
-            sudo chown -R ${{secrets.EC2_USERNAME}} /var/www/html/
+            sudo chown -R ${{secrets.EC2_USER_NAME}} /var/www/html/
             sudo chmod -R 755 /var/www/html/
 
       - name: Debug – List files
@@ -41,7 +41,7 @@ jobs:
           username: ${{secrets.EC2_USER_NAME}}
           key: ${{secrets.EC2_SSH_KEY}}
           port: 22
-          source: "*"
+          source: ""
           target: /var/www/html/
 
       - name: Restart Nginx
