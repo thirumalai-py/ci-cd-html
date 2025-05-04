@@ -20,17 +20,17 @@ jobs:
         run: |
           sudo chmod -R u+rwX .
 
-      # - name: SSH into EC2 and Prepare directory
-      #   uses: appleboy/ssh-action@v1.0.0
-      #   with:
-      #     host: ${{secrets.EC2_HOST_IP}}
-      #     username: ${{secrets.EC2_USER_NAME}}
-      #     key: ${{secrets.EC2_SSH_KEY}}
-      #     port: 22
-      #     script: |
-      #       sudo mkdir -p /var/www/html/
-      #       sudo chown -R ${{secrets.EC2_USERNAME}} /var/www/html/
-      #       sudo chmod -R 755 /var/www/html/
+      - name: SSH into EC2 and Prepare directory
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{secrets.EC2_HOST_IP}}
+          username: ${{secrets.EC2_USER_NAME}}
+          key: ${{secrets.EC2_SSH_KEY}}
+          port: 22
+          script: |
+            sudo mkdir -p /var/www/html/
+            sudo chown -R ${{secrets.EC2_USERNAME}} /var/www/html/
+            sudo chmod -R 755 /var/www/html/
 
       - name: Debug – List files
         run: |
